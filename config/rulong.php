@@ -5,7 +5,7 @@
  */
 return [
 
-    'version'   => '0.1.13',
+    'version'   => '1.0.1',
 
     'title'     => 'R.Admin',
 
