@@ -67,6 +67,10 @@
                     </thead>
                     <tbody>
                         <tr>
+                            <td>Panel版本</td>
+                            <td>{{ config('rulong.version') }}</td>
+                        </tr>
+                        <tr>
                             <td>模板库地址</td>
                             <td><a href="http://tpl.cjango.com/" target="_blank">tpl.cjango.com</a></td>
                         </tr>
