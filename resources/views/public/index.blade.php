@@ -57,7 +57,7 @@
 
             <div class="footer">
                 <div class="pull-right">
-                    &copy; 2010-{{ date('Y') }}  V {{ config('RuLong.version') }}
+                    &copy; 2010-{{ date('Y') }}  <img src="https://poser.pugx.org/rulong/laravel-panel/v/stable" alt="">
                 </div>
             </div>
         </div>

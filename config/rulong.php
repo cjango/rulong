@@ -5,8 +5,6 @@
  */
 return [
 
-    'version'   => '1.0.3',
-
     'title'     => 'R.Admin',
 
     'directory' => app_path('Admin'),

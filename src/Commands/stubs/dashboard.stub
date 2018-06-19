@@ -19,7 +19,7 @@
                             <td>PHP/{{ phpversion() }}</td>
                         </tr>
                         <tr>
-                            <td>框架核心版本</td>
+                            <td>Laravel 版本</td>
                             <td>{{ app()->version() }}</td>
                         </tr>
                         <tr>
@@ -27,19 +27,19 @@
                             <td>{{ php_sapi_name() }}</td>
                         </tr>
                         <tr>
-                            <td>Server</td>
+                            <td>Web Server</td>
                             <td>{{ array_get($_SERVER, 'SERVER_SOFTWARE') }}</td>
                         </tr>
                         <tr>
-                            <td>Cache driver</td>
+                            <td>Cache Driver</td>
                             <td>{{ config('cache.default') }}</td>
                         </tr>
                         <tr>
-                            <td>Session driver</td>
+                            <td>Session Driver</td>
                             <td>{{ config('session.driver') }}</td>
                         </tr>
                         <tr>
-                            <td>Queue driver</td>
+                            <td>Queue Driver</td>
                             <td>{{ config('queue.driver') }}</td>
                         </tr>
                         <tr>
@@ -68,7 +68,7 @@
                     <tbody>
                         <tr>
                             <td>Panel版本</td>
-                            <td>{{ config('rulong.version') }}</td>
+                            <td><img src="https://poser.pugx.org/rulong/laravel-panel/v/stable" alt=""></td>
                         </tr>
                         <tr>
                             <td>模板库地址</td>
