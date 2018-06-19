@@ -1,9 +1,9 @@
-@extends('CPanel::layouts.app')
+@extends('RuLong::layouts.app')
 
 @section('title', 'permissions - create')
 
 @section('content')
-<form class="form-horizontal" method="post" action="{{ route('CPanel.permissions.store' ) }}">
+<form class="form-horizontal" method="post" action="{{ route('RuLong.permissions.store' ) }}">
     <div class="form-group">
         <label class="col-xs-3 control-label">权限标识</label>
         <div class="col-xs-8">

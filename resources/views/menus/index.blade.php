@@ -1,4 +1,4 @@
-@extends('CPanel::layouts.app')
+@extends('RuLong::layouts.app')
 
 @section('title', 'menus - index')
 
@@ -20,14 +20,14 @@
                 <div class="row">
                     <div class="col-sm-8 m-b">
                         @if (Request::get('parent_id') != 0)
-                        <a class="btn btn-sm btn-white" href="{{ route('CPanel.menus.index') }}"><i class="fa fa-angle-left"></i> 返回</a>
+                        <a class="btn btn-sm btn-white" href="{{ route('RuLong.menus.index') }}"><i class="fa fa-angle-left"></i> 返回</a>
                         @endif
-                        <a class="btn btn-sm btn-primary" data-toggle="layer" data-height="510" href="{{ route('CPanel.menus.create', ['parent_id' => Request::get('parent_id')]) }}">
+                        <a class="btn btn-sm btn-primary" data-toggle="layer" data-height="510" href="{{ route('RuLong.menus.create', ['parent_id' => Request::get('parent_id')]) }}">
                             <i class="fa fa-plus"></i>
                             新增菜单
                         </a>
 
-                        <a class="btn btn-sm btn-primary" data-toggle="layer" data-height="510" href="{{ route('CPanel.menus.sort', ['parent_id' => Request::get('parent_id', 0)]) }}">
+                        <a class="btn btn-sm btn-primary" data-toggle="layer" data-height="510" href="{{ route('RuLong.menus.sort', ['parent_id' => Request::get('parent_id', 0)]) }}">
                             <i class="fa fa-sort-amount-asc"></i>
                             菜单排序
                         </a>
@@ -60,14 +60,14 @@
                             @foreach ($menus as $menu)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td><a href="{{ route('CPanel.menus.index', ['parent_id' => $menu->id]) }}" title="{{ $menu->title }}">{{ $menu->title }}</a></td>
+                                <td><a href="{{ route('RuLong.menus.index', ['parent_id' => $menu->id]) }}" title="{{ $menu->title }}">{{ $menu->title }}</a></td>
                                 <td><i class="fa {{ $menu->icon }}"></i></td>
                                 <td>{{ $menu->sort }}</td>
                                 <td>{{ $menu->uri }}</td>
                                 <td>{{ $menu->created_at }}</td>
                                 <td>
-                                    <a href="{{ route('CPanel.menus.edit', $menu) }}" data-toggle="layer" data-height="510" class="edit" title="编辑菜单">编辑</a>
-                                    <form action="{{ route('CPanel.menus.destroy', $menu) }}" method="POST" style="display:inline">
+                                    <a href="{{ route('RuLong.menus.edit', $menu) }}" data-toggle="layer" data-height="510" class="edit" title="编辑菜单">编辑</a>
+                                    <form action="{{ route('RuLong.menus.destroy', $menu) }}" method="POST" style="display:inline">
                                         <a href="javascript:void(0);" class="ajax-post confirm">
                                             删除
                                         </a>

@@ -1,4 +1,4 @@
-@extends('CPanel::layouts.app')
+@extends('RuLong::layouts.app')
 
 @section('content')
 <form class="form-horizontal" method="post" action="{{ url()->current() }}">

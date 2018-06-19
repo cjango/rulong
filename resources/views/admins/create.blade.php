@@ -1,9 +1,9 @@
-@extends('CPanel::layouts.app')
+@extends('RuLong::layouts.app')
 
 @section('title', 'admins - create')
 
 @section('content')
-<form class="form-horizontal" method="post" action="{{ route('CPanel.admins.store') }}">
+<form class="form-horizontal" method="post" action="{{ route('RuLong.admins.store') }}">
     <div class="form-group">
         <label class="col-xs-3 control-label">用户名</label>
         <div class="col-xs-8">

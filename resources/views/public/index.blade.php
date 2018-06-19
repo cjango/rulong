@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="renderer" content="webkit" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <title>{{ config('cpanel.title', '') }} 系统管理</title>
+    <title>{{ config('RuLong.title', '') }} 系统管理</title>
     <link rel="stylesheet" href="{{ admin_assets('css/bootstrap.min.css?v=3.3.6') }}" />
     <link rel="stylesheet" href="{{ admin_assets('css/font-awesome.min.css?v=4.4.0') }}" />
     <link rel="stylesheet" href="{{ admin_assets('css/animate.min.css') }}" />
@@ -18,7 +18,7 @@
 
 <body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
     <div id="wrapper">
-        @include('CPanel::common.nav')
+        @include('RuLong::common.nav')
         <!--右侧部分开始-->
         <div id="page-wrapper" class="gray-bg dashbard-1">
             <div class="row border-bottom">
@@ -26,7 +26,7 @@
                     <div class="navbar-header">
                         <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" href="#"><i class="fa fa-bars"></i></a>
                     </div>
-                    @include('CPanel::common.msg')
+                    @include('RuLong::common.msg')
                 </nav>
             </div>
 
@@ -57,7 +57,7 @@
 
             <div class="footer">
                 <div class="pull-right">
-                    &copy; 2010-{{ date('Y') }}  V {{ config('cpanel.version') }}
+                    &copy; 2010-{{ date('Y') }}  V {{ config('RuLong.version') }}
                 </div>
             </div>
         </div>

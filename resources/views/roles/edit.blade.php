@@ -1,9 +1,9 @@
-@extends('CPanel::layouts.app')
+@extends('RuLong::layouts.app')
 
 @section('title', 'roles - index')
 
 @section('content')
-<form class="form-horizontal" method="post" action="{{ route('CPanel.roles.update', $role )}}">
+<form class="form-horizontal" method="post" action="{{ route('RuLong.roles.update', $role )}}">
     <div class="form-group">
         <label class="col-xs-3 control-label">角色名称</label>
         <div class="col-xs-8">

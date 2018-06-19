@@ -1,4 +1,4 @@
-@extends('CPanel::layouts.app')
+@extends('RuLong::layouts.app')
 
 @section('title', 'permissions - index')
 
@@ -8,7 +8,7 @@
         <div class="ibox-content">
             <div class="row">
                 <div class="col-sm-8 m-b">
-                    <a class="btn btn-sm btn-primary" data-toggle="layer" data-height="300" href="{{ route('CPanel.permissions.create') }}">
+                    <a class="btn btn-sm btn-primary" data-toggle="layer" data-height="300" href="{{ route('RuLong.permissions.create') }}">
                         <i class="fa fa-plus"></i>
                         新增权限
                     </a>
@@ -47,8 +47,8 @@
                             <td>{{ $permission->created_at }}</td>
                             <td>{{ $permission->updated_at }}</td>
                             <td>
-                                <a data-toggle="layer" data-height="300" href="{{ route('CPanel.permissions.edit', $permission) }}">编辑</a>
-                                <form action="{{ route('CPanel.permissions.destroy', $permission) }}" method="POST" style="display:inline">
+                                <a data-toggle="layer" data-height="300" href="{{ route('RuLong.permissions.edit', $permission) }}">编辑</a>
+                                <form action="{{ route('RuLong.permissions.destroy', $permission) }}" method="POST" style="display:inline">
                                     <a href="javascript:void(0);" class="ajax-post confirm">
                                         删除
                                     </a>

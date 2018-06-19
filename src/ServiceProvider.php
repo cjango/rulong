@@ -32,7 +32,7 @@ class ServiceProvider extends LaravelServiceProvider
     {
         $this->commands($this->commands);
 
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'rulong');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'RuLong');
 
         if (is_dir(admin_path('Views'))) {
             $this->loadViewsFrom(admin_path('Views'), 'Admin');

@@ -4,6 +4,7 @@ namespace RuLong\Panel\Controllers;
 
 use Illuminate\Http\Request;
 use RuLong\Panel\Models\Menu;
+use RuLong\Panel\Requests\MenuRequest;
 
 class MenuController extends Controller
 {
@@ -25,7 +26,7 @@ class MenuController extends Controller
         return view('RuLong::menus.create', compact('topMenus'));
     }
 
-    public function store(Request $request)
+    public function store(MenuRequest $request)
     {
         if (Menu::create($request->all())) {
             return $this->success();
@@ -57,7 +58,7 @@ class MenuController extends Controller
         return view('RuLong::menus.edit', compact('topMenus', 'menu'));
     }
 
-    public function update(Request $request, Menu $menu)
+    public function update(MenuRequest $request, Menu $menu)
     {
         if ($menu->update($request->all())) {
             return $this->success();

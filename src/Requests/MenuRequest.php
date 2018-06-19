@@ -2,7 +2,7 @@
 
 namespace RuLong\Panel\Requests;
 
-class PermissionRequest extends Request
+class MenuRequest extends Request
 {
 
     public function rules()
@@ -31,9 +31,9 @@ class PermissionRequest extends Request
     public function messages()
     {
         return [
-            'name.required' => '权限标识必须填写',
-            'name.between'  => '权限标识长度应在:min-:max位之间',
-            'name.unique'   => '权限标识已经存在',
+            'name.required' => '角色名称必须填写',
+            'name.between'  => '角色名称长度应在:min-:max位之间',
+            'name.unique'   => '角色名称已经存在',
         ];
     }
 }

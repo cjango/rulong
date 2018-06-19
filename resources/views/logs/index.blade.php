@@ -1,4 +1,4 @@
-@extends('CPanel::layouts.app')
+@extends('RuLong::layouts.app')
 
 @section('title', 'logs - index')
 

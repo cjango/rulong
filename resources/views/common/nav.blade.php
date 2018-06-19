@@ -7,7 +7,7 @@
         <ul class="nav" id="side-menu">
             <li class="nav-header">
                 <div class="dropdown profile-element">
-                    <span><img alt="avatar" class="img-circle" src="{{ asset('assets/cpanel/img/avatar.jpg') }}" width="70" /></span>
+                    <span><img alt="avatar" class="img-circle" src="{{ admin_assets('img/avatar.jpg') }}" width="70" /></span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(0);">
                         <span class="clear">
                             <span class="block m-t-xs"><strong class="font-bold">{{ Admin::user()->nickname }}</strong></span>

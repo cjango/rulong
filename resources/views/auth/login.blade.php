@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>{{ config('app.name', '') }} 系统登录</title>
-    <link rel="stylesheet" href="{{ asset('assets/cpanel/js/plugins/layui/css/layui.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/cpanel/css/login.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/cpanel/css/animate.min.css') }}" />
+    <link rel="stylesheet" href="{{ admin_assets('js/plugins/layui/css/layui.css') }}" />
+    <link rel="stylesheet" href="{{ admin_assets('css/login.css') }}" />
+    <link rel="stylesheet" href="{{ admin_assets('css/animate.min.css') }}" />
     <style type="text/css">
         body {
-            background-image: url({{ asset('assets/cpanel/img/bg'.rand(1,3).'.jpg') }});
+            background-image: url({{ admin_assets('img/bg'.rand(1,3).'.jpg') }});
         }
     </style>
     <script>
@@ -21,7 +21,7 @@
 <body>
     <div class="mask"></div>
     <div class="main">
-        <h1><span style="font-size: 84px;">{{ config('cpanel.title', '') }} </span><span style="font-size:20px;">system</span></h1>
+        <h1><span style="font-size: 84px;">{{ config('rulong.title', '') }} </span><span style="font-size:20px;">system</span></h1>
         <div class="enter">
             <h2 class="animated">Click&nbsp;&nbsp;Here&nbsp;&nbsp;To&nbsp;&nbsp;Login</h2>
             <form action="{{ admin_url('auth/login') }}" class="layui-form animated bounceInLeft" method="post">

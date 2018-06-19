@@ -1,4 +1,4 @@
-@extends('CPanel::layouts.app')
+@extends('RuLong::layouts.app')
 
 @section('title', 'roles - index')
 
@@ -8,7 +8,7 @@
         <div class="ibox-content">
             <div class="row">
                 <div class="col-sm-8 m-b">
-                    <a class="btn btn-sm btn-primary" data-toggle="layer" data-height="300" href="{{ route('CPanel.roles.create') }}">
+                    <a class="btn btn-sm btn-primary" data-toggle="layer" data-height="300" href="{{ route('RuLong.roles.create') }}">
                         <i class="fa fa-plus"></i>
                         新增角色
                     </a>
@@ -47,8 +47,8 @@
                             <td>{{ $role->created_at }}</td>
                             <td>{{ $role->updated_at }}</td>
                             <td>
-                                <a data-toggle="layer" data-height="300" href="{{ route('CPanel.roles.edit', $role) }}">编辑</a>
-                                <form action="{{ route('CPanel.roles.destroy', $role) }}" method="POST" style="display:inline">
+                                <a data-toggle="layer" data-height="300" href="{{ route('RuLong.roles.edit', $role) }}">编辑</a>
+                                <form action="{{ route('RuLong.roles.destroy', $role) }}" method="POST" style="display:inline">
                                     <a href="javascript:void(0);" class="ajax-post confirm">
                                         删除
                                     </a>

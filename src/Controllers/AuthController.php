@@ -37,7 +37,7 @@ class AuthController extends Controller
                 return $this->error('用户名或密码错误');
             }
         } else {
-            return view('CPanel::auth.login');
+            return view('RuLong::auth.login');
         }
     }
 

@@ -1,4 +1,4 @@
-@extends('CPanel::layouts.app')
+@extends('RuLong::layouts.app')
 
 @section('title', 'menus - edit')
 
@@ -14,7 +14,7 @@
 @endpush
 
 @section('content')
-<form method="post" action="{{ route('CPanel.menus.update', $menu) }}" class="form-horizontal">
+<form method="post" action="{{ route('RuLong.menus.update', $menu) }}" class="form-horizontal">
     <div class="form-group">
         <label class="col-xs-3 control-label">菜单名称</label>
         <div class="col-xs-8">
