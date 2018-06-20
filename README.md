@@ -2,6 +2,7 @@
 
 > RuLong 后台控制面板
 
+[View On GitHub](https://github.com/cjango/rulong)
 
 ## 1.安装
 使用composer安装
