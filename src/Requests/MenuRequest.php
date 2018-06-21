@@ -9,16 +9,11 @@ class MenuRequest extends Request
     {
         switch ($this->method()) {
             case 'POST':
-                $rules = [
-                    'name'       => 'required|between:2,32|unique:admin_roles',
-                    'guard_name' => 'required',
-                ];
-                break;
             case 'PUT':
-                $id    = $this->route('role')->id;
                 $rules = [
-                    'name'       => 'required|between:2,32|unique:admin_roles,name,' . $id,
-                    'guard_name' => 'required',
+                    'title' => 'required|max:16',
+                    'sort'  => 'required|integer',
+                    'uri'   => 'required_unless:parent_id,0',
                 ];
                 break;
             default:
@@ -31,9 +26,11 @@ class MenuRequest extends Request
     public function messages()
     {
         return [
-            'name.required' => '角色名称必须填写',
-            'name.between'  => '角色名称长度应在:min-:max位之间',
-            'name.unique'   => '角色名称已经存在',
+            'title.required'      => '菜单名称必须填写',
+            'title.max'           => '菜单名称长度应在:max以内',
+            'sort.required'       => '菜单排序必须填写',
+            'sort.integer'        => '菜单排序只能是数字',
+            'uri.required_unless' => '菜单连接地址必须填写',
         ];
     }
 }

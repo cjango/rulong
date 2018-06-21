@@ -85,7 +85,7 @@ class ServiceProvider extends LaravelServiceProvider
         if (file_exists(admin_path('routes.php'))) {
             Route::middleware(config('rulong.route.middleware'))
                 ->prefix(config('rulong.route.prefix'))
-                ->name('RuLong.')
+                ->name('Admin.')
                 ->namespace('App\Admin\Controllers')
                 ->group(admin_path('routes.php'));
         }
