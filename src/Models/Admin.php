@@ -22,6 +22,11 @@ class Admin extends Authenticatable
         'remember_token',
     ];
 
+    public function isAdmin()
+    {
+        return $this->id == 1;
+    }
+
     protected function setPasswordAttribute($value)
     {
         if (!empty($value)) {
@@ -36,6 +41,11 @@ class Admin extends Authenticatable
         } else {
             $this->attributes['nickname'] = $value;
         }
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'admin_role_user')->withTimestamps();
     }
 
     public function operationLogs()

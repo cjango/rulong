@@ -33,7 +33,7 @@ class CreateAdminTables extends Migration
         Schema::create('admin_menus', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('parent_id')->unsigned();
-            $table->string('title', 50);
+            $table->string('title', 64);
             $table->string('icon', 20)->nullable();
             $table->integer('sort')->unsigned();
             $table->string('uri')->nullable();
@@ -50,56 +50,20 @@ class CreateAdminTables extends Migration
             $table->timestamp('created_at')->nullable();
         });
 
-        /**
-         * 以下是权限表
-         */
-        Schema::create('admin_model_has_permissions', function (Blueprint $table) {
-            $table->integer('permission_id')->unsigned();
-            $table->string('model_type', 191);
-            $table->bigInteger('model_id')->unsigned();
-            $table->primary(['permission_id', 'model_id', 'model_type'], 'main_key');
-            $table->index(['model_type', 'model_id']);
-        });
-
-        Schema::create('admin_model_has_roles', function (Blueprint $table) {
-            $table->integer('role_id')->unsigned();
-            $table->string('model_type', 191);
-            $table->bigInteger('model_id')->unsigned();
-            $table->primary(['role_id', 'model_id', 'model_type'], 'main_key');
-            $table->index(['model_type', 'model_id']);
-        });
-
-        Schema::create('admin_permissions', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name', 191);
-            $table->string('guard_name', 191);
-            $table->timestamps();
-        });
-
         Schema::create('admin_roles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 191);
-            $table->string('guard_name', 191);
+            $table->string('name', 64);
+            $table->string('description');
+            $table->text('rules')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
 
-        Schema::create('admin_role_has_permissions', function (Blueprint $table) {
-            $table->integer('permission_id')->unsigned();
-            $table->integer('role_id')->unsigned()->index();
-            $table->primary(['permission_id', 'role_id'], 'main_key');
-        });
-
-        Schema::table('admin_model_has_permissions', function (Blueprint $table) {
-            $table->foreign('permission_id')->references('id')->on('admin_permissions')->onUpdate('RESTRICT')->onDelete('CASCADE');
-        });
-
-        Schema::table('admin_model_has_roles', function (Blueprint $table) {
-            $table->foreign('role_id')->references('id')->on('admin_roles')->onUpdate('RESTRICT')->onDelete('CASCADE');
-        });
-
-        Schema::table('admin_role_has_permissions', function (Blueprint $table) {
-            $table->foreign('permission_id')->references('id')->on('admin_permissions')->onUpdate('RESTRICT')->onDelete('CASCADE');
-            $table->foreign('role_id')->references('id')->on('admin_roles')->onUpdate('RESTRICT')->onDelete('CASCADE');
+        Schema::create('admin_role_user', function (Blueprint $table) {
+            $table->integer('role_id')->unsigned();
+            $table->integer('admin_id')->unsigned();
+            $table->timestamps();
+            $table->primary(['role_id', 'admin_id']);
         });
     }
 
@@ -115,10 +79,7 @@ class CreateAdminTables extends Migration
         Schema::drop('admin_logins');
         Schema::drop('admin_menus');
         Schema::drop('admin_operation_logs');
-        Schema::drop('admin_model_has_permissions');
-        Schema::drop('admin_model_has_roles');
-        Schema::drop('admin_permissions');
         Schema::drop('admin_roles');
-        Schema::drop('admin_role_has_permissions');
+        Schema::drop('admin_role_user');
     }
 }

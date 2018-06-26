@@ -1,9 +1,9 @@
 @extends('RuLong::layouts.app')
 
-@section('title', 'roles - index')
+@section('title', 'roles - edit')
 
 @section('content')
-<form class="form-horizontal" method="post" action="{{ route('RuLong.roles.update', $role )}}">
+<form class="form-horizontal" method="post" action="{{ route('RuLong.roles.update', $role) }}">
     <div class="form-group">
         <label class="col-xs-3 control-label">角色名称</label>
         <div class="col-xs-8">
@@ -11,20 +11,16 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="col-xs-3 control-label">指定看守器</label>
+        <label class="col-xs-3 control-label">备注信息</label>
         <div class="col-xs-8">
-            <select name="guard_name" class="form-control">
-                @foreach ($guards as $guard)
-                <option @if ($role->guard_name == $guard) selected @endif value="{{ $guard }}">{{ $guard }}</option>
-                @endforeach
-            </select>
+            <textarea name="description" class="form-control" rows="3">{{ $role->description }}</textarea>
         </div>
     </div>
     <div class="form-group">
         <div class="col-xs-offset-3 col-xs-8">
             @csrf
             @method('PUT')
-            <button class="btn btn-primary ajax-post" type="button">编辑角色</button>
+            <button class="btn btn-primary ajax-post" type="button">保存角色</button>
         </div>
     </div>
 </form>

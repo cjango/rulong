@@ -10,15 +10,15 @@ class RoleRequest extends Request
         switch ($this->method()) {
             case 'POST':
                 $rules = [
-                    'name'       => 'required|between:2,32|unique:admin_roles',
-                    'guard_name' => 'required',
+                    'name'        => 'required|between:2,32|unique:admin_roles',
+                    'description' => 'max:255',
                 ];
                 break;
             case 'PUT':
                 $id    = $this->route('role')->id;
                 $rules = [
-                    'name'       => 'required|between:2,32|unique:admin_roles,name,' . $id,
-                    'guard_name' => 'required',
+                    'name'        => 'required|between:2,32|unique:admin_roles,name,' . $id,
+                    'description' => 'max:255',
                 ];
                 break;
             default:
@@ -31,9 +31,10 @@ class RoleRequest extends Request
     public function messages()
     {
         return [
-            'name.required' => '角色名称必须填写',
-            'name.between'  => '角色名称长度应在:min-:max位之间',
-            'name.unique'   => '角色名称已经存在',
+            'name.required'   => '角色名称必须填写',
+            'name.between'    => '角色名称长度应在:min-:max位之间',
+            'name.unique'     => '角色名称已经存在',
+            'description.max' => '角色描述应小于:max字符',
         ];
     }
 }

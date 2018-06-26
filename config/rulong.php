@@ -5,17 +5,17 @@
  */
 return [
 
-    'title'     => 'R.Admin',
+    'title'      => 'R.Admin',
 
-    'directory' => app_path('Admin'),
+    'directory'  => app_path('Admin'),
 
-    'route'     => [
+    'route'      => [
         'prefix'     => 'admin',
         'middleware' => ['web', 'rulong'],
         'namespace'  => 'App\\Admin\\Controllers',
     ],
 
-    'auth'      => [
+    'auth'       => [
         'guards'    => [
             'rulong' => [
                 'driver'   => 'session',
@@ -31,14 +31,21 @@ return [
         ],
     ],
 
-    'logs'      => [
+    'logs'       => [
         'enable' => true,
         'except' => [
             '/',
             'dashboard',
             'password',
-            'ueditor',
             'logs*',
+        ],
+    ],
+    'permission' => [
+        'except' => [
+            '/',
+            'auth*',
+            'dashboard',
+            'password',
         ],
     ],
 ];

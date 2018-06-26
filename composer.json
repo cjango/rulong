@@ -10,8 +10,7 @@
     ],
     "require": {
         "php": ">=7.1.3",
-        "mews/captcha": "^2.2",
-        "spatie/laravel-permission": "^2.0"
+        "mews/captcha": "^2.2"
     },
     "autoload": {
         "psr-0": {

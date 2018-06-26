@@ -29,11 +29,10 @@ class AdminTablesSeeder extends Seeder
 
         $menus = [
             ['id' => 1, 'parent_id' => 0, 'title' => '系统管理', 'icon' => 'fa-cogs', 'sort' => 99, 'uri' => null],
-            ['id' => 10, 'parent_id' => 1, 'title' => '用户管理', 'icon' => 'fa-user', 'sort' => 1, 'uri' => 'admins'],
-            ['id' => 20, 'parent_id' => 1, 'title' => '角色管理', 'icon' => 'fa-group', 'sort' => 2, 'uri' => 'roles'],
-            ['id' => 30, 'parent_id' => 1, 'title' => '权限管理', 'icon' => 'fa-object-group', 'sort' => 3, 'uri' => 'permissions'],
-            ['id' => 40, 'parent_id' => 1, 'title' => '菜单管理', 'icon' => 'fa-bars', 'sort' => 4, 'uri' => 'menus'],
-            ['id' => 50, 'parent_id' => 1, 'title' => '系统日志', 'icon' => 'fa-list', 'sort' => 5, 'uri' => 'logs'],
+            ['id' => 10, 'parent_id' => 1, 'title' => '用户管理', 'icon' => 'fa-user', 'sort' => 1, 'uri' => 'RuLong.admins.index'],
+            ['id' => 20, 'parent_id' => 1, 'title' => '角色管理', 'icon' => 'fa-group', 'sort' => 2, 'uri' => 'RuLong.roles.index'],
+            ['id' => 30, 'parent_id' => 1, 'title' => '菜单管理', 'icon' => 'fa-bars', 'sort' => 3, 'uri' => 'RuLong.menus.index'],
+            ['id' => 40, 'parent_id' => 1, 'title' => '系统日志', 'icon' => 'fa-list', 'sort' => 4, 'uri' => 'RuLong.logs.index'],
         ];
         foreach ($menus as $menu) {
             Menu::create($menu);

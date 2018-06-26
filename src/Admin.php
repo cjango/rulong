@@ -49,9 +49,15 @@ class Admin
                 $router->resource('admins', 'AdminController');
                 $router->match(['get', 'post'], 'menus/{pid}/sort', 'MenuController@sort')->name('menus.sort');
                 $router->resource('menus', 'MenuController');
+
+                $router->any('roles/{role}/menus', 'RoleController@menus')->name('roles.menus');
+                $router->any('roles/{role}/users', 'RoleController@users')->name('roles.users');
+                $router->get('roles/{role}/{admin}/auth', 'RoleController@auth')->name('roles.auth');
+                $router->get('roles/{role}/{admin}/remove', 'RoleController@remove')->name('roles.remove');
+
                 $router->resource('roles', 'RoleController');
                 $router->resource('permissions', 'PermissionController');
-                $router->get('logs', 'LogController@index');
+                $router->get('logs', 'LogController@index')->name('logs.index');
             });
     }
 }

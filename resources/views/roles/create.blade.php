@@ -1,9 +1,9 @@
 @extends('RuLong::layouts.app')
 
-@section('title', 'roles - index')
+@section('title', 'roles - create')
 
 @section('content')
-<form class="form-horizontal" method="post" action="{{ route('RuLong.roles.store' ) }}">
+<form class="form-horizontal" method="post" action="{{ route('RuLong.roles.store') }}">
     <div class="form-group">
         <label class="col-xs-3 control-label">角色名称</label>
         <div class="col-xs-8">
@@ -11,13 +11,9 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="col-xs-3 control-label">指定看守器</label>
+        <label class="col-xs-3 control-label">备注信息</label>
         <div class="col-xs-8">
-            <select name="guard_name" class="form-control">
-                @foreach ($guards as $guard)
-                <option value="{{ $guard }}">{{ $guard }}</option>
-                @endforeach
-            </select>
+            <textarea name="description" class="form-control" rows="3"></textarea>
         </div>
     </div>
     <div class="form-group">

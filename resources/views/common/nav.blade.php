@@ -30,7 +30,7 @@
                 <ul class="nav nav-second-level">
                     @foreach ($menu['children'] as $children)
                     <li>
-                        <a class="J_menuItem" href="{{ admin_url($children['uri']) }}"><i class="fa {{ $children['icon'] }}"></i> {{ $children['title'] }}</a>
+                        <a class="J_menuItem" href="{{ route($children['uri']) }}"><i class="fa {{ $children['icon'] }}"></i> {{ $children['title'] }}</a>
                     </li>
                     @endforeach
                 </ul>

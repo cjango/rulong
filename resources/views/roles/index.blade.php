@@ -30,31 +30,29 @@
                         <tr>
                             <th width="50">序号</th>
                             <th width="150">角色名称</th>
-                            <th width="150">指定看守器</th>
-                            <th></th>
+                            <th>角色描述</th>
                             <th width="135">创建时间</th>
-                            <th width="135">更新时间</th>
-                            <th width="80"></th>
+                            <th width="220"></th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($roles as $role)
-                        <tr>
+                        <tr class="edit" data-url="{{ route('RuLong.roles.edit', $role) }}">
                             <td>{{ $role->id }}</td>
                             <td>{{ $role->name }}</td>
-                            <td>{{ $role->guard_name }}</td>
-                            <td></td>
+                            <td>{{ $role->description }}</td>
                             <td>{{ $role->created_at }}</td>
-                            <td>{{ $role->updated_at }}</td>
                             <td>
-                                <a data-toggle="layer" data-height="300" href="{{ route('RuLong.roles.edit', $role) }}">编辑</a>
+                                <a href="{{ route('RuLong.roles.edit', $role) }}" title="编辑角色" data-toggle="layer" data-height="300">编辑</a> |
                                 <form action="{{ route('RuLong.roles.destroy', $role) }}" method="POST" style="display:inline">
                                     <a href="javascript:void(0);" class="ajax-post confirm">
                                         删除
                                     </a>
                                     @csrf
                                     @method('DELETE')
-                                </form>
+                                </form> |
+                                <a href="{{ route('RuLong.roles.menus', $role) }}" title="菜单授权">菜单授权</a> |
+                                <a href="{{ route('RuLong.roles.users', $role) }}" title="菜单授权">用户授权</a>
                             </td>
                         </tr>
                         @endforeach

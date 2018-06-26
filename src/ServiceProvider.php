@@ -12,14 +12,16 @@ class ServiceProvider extends LaravelServiceProvider
 {
 
     protected $routeMiddleware = [
-        'rulong.auth' => Middleware\Authenticate::class,
-        'rulong.log'  => Middleware\LogOperation::class,
+        'rulong.auth'       => Middleware\Authenticate::class,
+        'rulong.log'        => Middleware\LogOperation::class,
+        'rulong.permission' => Middleware\Permission::class,
     ];
 
     protected $middlewareGroups = [
         'rulong' => [
             'rulong.auth',
             'rulong.log',
+            'rulong.permission',
         ],
     ];
 
@@ -41,7 +43,6 @@ class ServiceProvider extends LaravelServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([__DIR__ . '/../config/rulong.php' => config_path('rulong.php')]);
             $this->publishes([__DIR__ . '/../config/captcha.php' => config_path('captcha.php')]);
-            $this->publishes([__DIR__ . '/../config/permission.php' => config_path('permission.php')]);
 
             $this->publishes([__DIR__ . '/../resources/assets' => public_path('assets/rulong')]);
             $this->publishes([__DIR__ . '/../database/migrations' => database_path('migrations')]);
@@ -53,7 +54,6 @@ class ServiceProvider extends LaravelServiceProvider
         // 加载默认配置
         $this->mergeConfigFrom(__DIR__ . '/../config/rulong.php', 'rulong');
         $this->mergeConfigFrom(__DIR__ . '/../config/captcha.php', 'captcha');
-        $this->mergeConfigFrom(__DIR__ . '/../config/permission.php', 'permission');
         // 载入用户认证机制
         $this->loadAdminAuthConfig();
         // 注册中间件
