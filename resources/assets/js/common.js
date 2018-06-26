@@ -147,13 +147,27 @@ $('#password').on('click', function(event) {
     _height = $this.data('height') || '350',
     _title = $this.attr('title') || $this.data('title') || $this.text() || '模态窗口',
     _href = $this.attr('href') || $this.data('remote') || $this.data('url');
-
+    if($this.hasClass('max-size')){
+        _width="100%";_height="100%";
+    }
+    var width_str='';
+    var height_str='';
+    if (_width.toString().indexOf('%') != -1) {
+        width_str = _width;
+    } else {
+        width_str = _width+'px';
+    }
+    if (_height.toString().indexOf('%') != -1) {
+        height_str = _height;
+    } else{
+        height_str = _height+'px';
+    }
     layer.open({
         type: 2,
         title: _title,
         closeBtn: 1,
         shade: 0.5,
-        area: [_width + 'px', _height + 'px'],
+        area: [width_str, height_str],
         content: _href
     });
 });
