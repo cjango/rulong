@@ -2,7 +2,7 @@
 
 namespace RuLong\Panel\Requests;
 
-use Auth;
+use Admin;
 use Hash;
 
 class PasswordRequest extends Request
@@ -14,7 +14,7 @@ class PasswordRequest extends Request
             case 'PUT':
                 $rules = [
                     'oldpass' => ['required', function ($attribute, $value, $fail) {
-                        if (!Hash::check($value, Auth::guard('admin')->user()->password)) {
+                        if (!Hash::check($value, Admin::user()->password)) {
                             return $fail('原始密码不正确');
                         }
                     }],
