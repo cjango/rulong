@@ -25,7 +25,7 @@
                         <th width="60">Method</th>
                         <th width="100">IP</th>
                         <th>Input</th>
-                        <th width="135">创建时间</th>
+                        <th width="140">创建时间</th>
                     </tr>
                 </thead>
                 <tbody>

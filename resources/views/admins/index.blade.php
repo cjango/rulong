@@ -31,10 +31,10 @@
                         <th width="100">用户名</th>
                         <th width="100">昵称</th>
                         <th></th>
-                        <th width="135">注册时间</th>
+                        <th width="140">注册时间</th>
                         <th width="50">登录</th>
                         <th width="120">上次登录IP</th>
-                        <th width="135">上次登录时间</th>
+                        <th width="140">上次登录时间</th>
                         <th width="80"></th>
                     </tr>
                 </thead>

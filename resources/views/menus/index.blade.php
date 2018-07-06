@@ -52,7 +52,7 @@
                                 <th width="45">图标</th>
                                 <th width="45">排序</th>
                                 <th>连接地址</th>
-                                <th width="135">创建时间</th>
+                                <th width="140">创建时间</th>
                                 <th width="80">操作</th>
                             </tr>
                         </thead>

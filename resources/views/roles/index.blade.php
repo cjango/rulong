@@ -31,7 +31,7 @@
                             <th width="50">序号</th>
                             <th width="150">角色名称</th>
                             <th>角色描述</th>
-                            <th width="135">创建时间</th>
+                            <th width="140">创建时间</th>
                             <th width="220"></th>
                         </tr>
                     </thead>
