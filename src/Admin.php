@@ -56,7 +56,6 @@ class Admin
                 $router->get('roles/{role}/{admin}/remove', 'RoleController@remove')->name('roles.remove');
 
                 $router->resource('roles', 'RoleController');
-                $router->resource('permissions', 'PermissionController');
                 $router->get('logs', 'LogController@index')->name('logs.index');
             });
     }
