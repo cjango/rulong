@@ -53,7 +53,7 @@ class CreateAdminTables extends Migration
         Schema::create('admin_roles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 64);
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->text('rules')->nullable();
             $table->timestamps();
             $table->softDeletes();

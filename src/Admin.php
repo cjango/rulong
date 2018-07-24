@@ -46,16 +46,16 @@ class Admin
                 $router->get('/', 'IndexController@index');
                 $router->any('password', 'IndexController@password');
 
-                $router->resource('admins', 'AdminController');
+                $router->resource('admins', 'AdminController')->except('show');
                 $router->match(['get', 'post'], 'menus/{pid}/sort', 'MenuController@sort')->name('menus.sort');
-                $router->resource('menus', 'MenuController');
+                $router->resource('menus', 'MenuController')->except('show');
 
                 $router->any('roles/{role}/menus', 'RoleController@menus')->name('roles.menus');
                 $router->any('roles/{role}/users', 'RoleController@users')->name('roles.users');
                 $router->get('roles/{role}/{admin}/auth', 'RoleController@auth')->name('roles.auth');
                 $router->get('roles/{role}/{admin}/remove', 'RoleController@remove')->name('roles.remove');
+                $router->resource('roles', 'RoleController')->except('show');
 
-                $router->resource('roles', 'RoleController');
                 $router->get('logs', 'LogController@index')->name('logs.index');
             });
     }
