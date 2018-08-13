@@ -22,12 +22,12 @@
                         @if (Request::get('parent_id') != 0)
                         <a class="btn btn-sm btn-white" href="{{ route('RuLong.menus.index') }}"><i class="fa fa-angle-left"></i> 返回</a>
                         @endif
-                        <a class="btn btn-sm btn-primary" data-toggle="layer" data-height="510" href="{{ route('RuLong.menus.create', ['parent_id' => Request::get('parent_id')]) }}">
+                        <a class="btn btn-sm btn-primary" data-toggle="layer" data-height="400" href="{{ route('RuLong.menus.create', ['parent_id' => Request::get('parent_id')]) }}">
                             <i class="fa fa-plus"></i>
                             新增菜单
                         </a>
 
-                        <a class="btn btn-sm btn-primary" data-toggle="layer" data-height="510" href="{{ route('RuLong.menus.sort', ['parent_id' => Request::get('parent_id', 0)]) }}">
+                        <a class="btn btn-sm btn-primary" data-toggle="layer" data-height="400" href="{{ route('RuLong.menus.sort', ['parent_id' => Request::get('parent_id', 0)]) }}">
                             <i class="fa fa-sort-amount-asc"></i>
                             菜单排序
                         </a>
@@ -66,7 +66,7 @@
                                 <td>{{ $menu->uri }}</td>
                                 <td>{{ $menu->created_at }}</td>
                                 <td>
-                                    <a href="{{ route('RuLong.menus.edit', $menu) }}" data-toggle="layer" data-height="510" class="edit" title="编辑菜单">编辑</a>
+                                    <a href="{{ route('RuLong.menus.edit', $menu) }}" data-toggle="layer" data-height="400" class="edit" title="编辑菜单">编辑</a>
                                     <form action="{{ route('RuLong.menus.destroy', $menu) }}" method="POST" style="display:inline">
                                         <a href="javascript:void(0);" class="ajax-post confirm">
                                             删除

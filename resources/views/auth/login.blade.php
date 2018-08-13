@@ -1,104 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>{{ config('app.name', '') }} 系统登录</title>
-    <link rel="stylesheet" href="{{ admin_assets('js/plugins/layui/css/layui.css') }}" />
-    <link rel="stylesheet" href="{{ admin_assets('css/login.css') }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>{{ config('app.name') }} 管理登录</title>
+    <link rel="stylesheet" href="{{ admin_assets('css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ admin_assets('css/animate.min.css') }}" />
-    <style type="text/css">
-        body {
-            background-image: url({{ admin_assets('img/bg'.rand(1,3).'.jpg') }});
-        }
-    </style>
+    <link rel="stylesheet" href="{{ admin_assets('css/style.min.css') }}" />
+    <link rel="stylesheet" href="{{ admin_assets('css/login_v2.css') }}" />
+    <link rel="stylesheet" href="{{ admin_assets('css/plugins/sweetalert/sweetalert.css') }}" />
     <script>
         if (window.top !== window.self) {
-            window.top.location = window.location;
+            window.top.location = window.location
         }
     </script>
 </head>
-<body>
-    <div class="mask"></div>
-    <div class="main">
-        <h1><span style="font-size: 84px;">{{ config('rulong.title', '') }} </span><span style="font-size:20px;">system</span></h1>
-        <div class="enter">
-            <h2 class="animated">Click&nbsp;&nbsp;Here&nbsp;&nbsp;To&nbsp;&nbsp;Login</h2>
-            <form action="{{ admin_url('auth/login') }}" class="layui-form animated bounceInLeft" method="post">
-                <div class="layui-form-item">
-                    <label class="login-icon"> <i class="layui-icon">&#xe612;</i> </label>
-                    <input type="text" name="username" lay-verify="username" autocomplete="off" placeholder="请输入登录名" class="layui-input" value="" />
-                </div>
-                <div class="layui-form-item">
-                    <label class="login-icon"> <i class="layui-icon">&#xe642;</i> </label>
-                    <input type="password" name="password" lay-verify="password" autocomplete="off" placeholder="请输入密码" class="layui-input" />
-                </div>
-                <div class="layui-form-item">
-                    <label class="login-icon"> <i class="layui-icon">&#xe642;</i> </label>
-                    <input type="text" name="verify" lay-verify="verify" autocomplete="off" placeholder="请输入验证码" class="layui-input verify" />
-                    <div class="code" style="background-image:url({{ captcha_src() }});"></div>
-                </div>
-                <div class="layui-form-item">
-                    <div class="pull-left login-remember">
-                        <label>记住帐号？</label>
-                        <input type="checkbox" name="remember" value="true" checked lay-skin="switch" title="保持登录">
+<body class="signin">
+    <div class="signinpanel">
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="signin-info">
+                    <div class="logopanel m-b">
+                        <h1>[ {{ config('app.name') }} ]</h1>
                     </div>
-                    <div class="pull-right">
-                        @csrf
-                        <button class="layui-btn layui-btn-primary" lay-submit lay-filter="login"> <i class="layui-icon">&#xe650;</i> 登录 </button>
-                    </div>
-                    <div class="clear"></div>
+                    <div class="m-b"></div>
+                    <h4>欢迎使用 <strong>{{ config('app.name') }} 管理系统</strong></h4>
+                    <ul class="m-b">
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i></li>
+                    </ul>
                 </div>
-            </form>
+            </div>
+            <div class="col-sm-5">
+                <form method="post" action="{{ url()->current() }}">
+                    <h4 class="no-margins">登录：</h4>
+                    <p class="m-t-md">登录到 {{ config('app.name') }}</p>
+                    <input type="text" class="form-control uname" name="username" placeholder="登录手机号" />
+                    <input type="password" class="form-control pword" name="password" placeholder="登录密码" />
+                    <div class="verify">
+                        <input type="text" name="verify" class="form-control" placeholder="请输入验证码"/>
+                        <div class="code" style="background-image:url({{ captcha_src() }});"></div>
+                    </div>
+                    @csrf
+                    <button class="btn btn-success btn-block ajax-post">登录</button>
+                </form>
+            </div>
+        </div>
+        <div class="signup-footer">
+            <div class="pull-left">
+                &copy; 2018 All Rights Reserved. C.Jason
+            </div>
         </div>
     </div>
-    <script type="text/javascript" src="{{ admin_assets('js/plugins/layui/layui.js') }}"></script>
-    <script>
-        layui.use(['form'], function() {
-            var $ = layui.jquery, form = layui.form();
-            $("h2").on('click', function(){
-                $(this).hide();
-                $('.layui-form').show();
-            });
-            $('.code').on('click', function() {
-                $(this).attr('style', 'background-image:url({{ captcha_src() }}&_='+ Math.random() +');');
-            });
-            layer.config({
-                time: 1000
-            });
-            form.verify({
-                username: function (value) {
-                    if (value.length < 4 || value.length > 20) {
-                        return "账号应在4-20位之间"
-                    }
-                    var reg = /^[a-zA-Z0-9]*$/;
-                    if (!reg.test(value)) {
-                        return "账号只能为英文或数字";
-                    }
-                },
-                password: [/^[\S]{4,20}$/, '密码应在4-20位之间'],
-                verify: [/^[\S]{4}$/, '验证码长度有误']
-            });
-            form.on('submit(login)', function(data) {
-                layer.load(2);
-                $('form').removeClass('bounceInLeft');
-                $.post(data.form.action, data.field, function(res) {
-                    layer.closeAll('loading');
-                    if (res.code == 1) {
-                        layer.msg(res.msg, {icon: 1, time: 1000}, function() {
-                            location.href = res.url;
-                        });
-                    } else {
-                        $('form').addClass('shake');
-                        layer.msg(res.msg, {icon: 5}, function() {
-                            $('form').removeClass('shake');
-                        });
-                        $('.code').click();
-                    }
-                });
-                return false;
-            });
+    <script type="text/javascript" src="{{ admin_assets('js/jquery.min.js?v=2.1.4') }}"></script>
+    <script type="text/javascript" src="{{ admin_assets('js/plugins/sweetalert/sweetalert.min.js') }}"></script>
+    <script type="text/javascript" src="{{ admin_assets('js/plugins/layer/layer.min.js') }}"></script>
+    <script type="text/javascript" src="{{ admin_assets('js/common.js') }}"></script>
+    <script type="text/javascript">
+        $('.code').click(function() {
+            $(this).attr('style', 'background-image:url({{ captcha_src() }}&_='+ Math.random() +');');
         });
-</script>
+    </script>
 </body>
 </html>

@@ -16,7 +16,12 @@ class AuthController extends Controller
                 'password' => 'required|min:6',
                 'verify'   => 'required|captcha',
             ], [
-                'verify.captcha' => '验证码不正确',
+                'username.required' => '用户名必须填写',
+                'username.min'      => '用户名不少于:min位',
+                'password.required' => '密码必须填写',
+                'password.min'      => '密码不少于:min位',
+                'verify.required'   => '验证码必须填写',
+                'verify.captcha'    => '验证码不正确',
             ]);
 
             if ($validator->fails()) {

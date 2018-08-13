@@ -70,7 +70,6 @@
     <script type="text/javascript" src="{{ admin_assets('js/plugins/layer/layer.min.js') }}"></script>
     <script type="text/javascript" src="{{ admin_assets('js/hplus.min.js?v=4.1.0') }}"></script>
     <script type="text/javascript" src="{{ admin_assets('js/plugins/sweetalert/sweetalert.min.js') }}"></script>
-    <script type="text/javascript" src="{{ admin_assets('js/plugins/layer/layer.min.js') }}"></script>
     <script type="text/javascript" src="{{ admin_assets('js/contabs.min.js') }}"></script>
     <script type="text/javascript" src="{{ admin_assets('js/common.js') }}"></script>
 </body>
